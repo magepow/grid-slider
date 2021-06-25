@@ -14,10 +14,6 @@
 <link rel="stylesheet" href="css/slick.css">
 <link rel="stylesheet" href="css/slick-theme.css">
 <script src="js/jquery.js"></script> 
-<script
-  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-  crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/slick.js"></script> 
 <script type="text/javascript" src="grid-slider.js"></script> 
 <style>
@@ -28,6 +24,28 @@ img{width:100%}
 <body>
 
 <div class="demo">
+	<ul class="slider grid-slider" 
+	data-infinite="true"
+	data-speed="300"
+	data-slides-To-Show="4",
+	data-slides-To-Scroll="1",
+	data-responsive= '[{"breakpoint": "1024", "settings": {"slidesToShow": "6"}}, {"breakpoint": "800", "settings": {"slidesToShow": "3"}}, {"breakpoint": "600", "settings": {"slidesToShow": "2"}}, {"breakpoint": "460", "settings": {"slidesToShow": "1"}}]'
+	>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image1.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image2.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image3.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image4.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image5.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image6.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image7.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image8.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image9.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image10.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image11.jpg"/></li>
+	</ul>
+</div>
+
+<div class="demo2">
 	<ul class="slider grid-slider" 
 	data-infinite="true"
 	data-speed="300"
@@ -49,10 +67,12 @@ img{width:100%}
 	</ul>
 </div>
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. --> 
 <script>
 $(document).ready(function() {
-	$('.demo').gridSlider();
+	var slide = $('.demo').gridSlider().addClass('done');
+	console.log(slide);
+	var slide2 = $('.demo2').gridSlider().addClass('done');
+	console.log(slide);
 });
 </script>
 
