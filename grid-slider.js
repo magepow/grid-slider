@@ -2,13 +2,8 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2021-06-25 17:36:47
+* @Last Modified time: 2021-06-25 17:44:29
 */
-
-// jQuery Plugin Boilerplate
-// A boilerplate for jumpstarting jQuery plugins development
-// version 1.1, May 14th, 2011
-// by Stefan Gabos
 
 (function($) {
 
@@ -64,7 +59,7 @@
 	                element.children().addClass('alo-item');
 	                var iClass = '.alo-item';
 	            }
-	            var classes	= selector + ' '+ iClass;
+	            var classes	= selector + ' ' + iClass;
 	            var padding = options.padding;
 	            var float  	= $('body').hasClass('rtl') ? 'right' : 'left';
 	            var style 	= padding ? classes + '{float: ' + float + '; padding: 0 '+padding+'px; box-sizing: border-box} ' + selector + '{margin: 0 -'+padding+'px}' : '';
@@ -113,6 +108,7 @@
 					}
 					style += ' {'+selector + '{margin: 0 -'+padding+'px}'+classes+'{padding: 0 '+padding+'px; box-sizing: border-box; width: '+(Math.floor((10/col) * 100000000000) / 10000000000)+'%} '+classes+':nth-child('+col+'n+1){clear: ' + float + ';}}';
 				});	
+				console.log(style);
 	           	$head.append('<style type="text/css" id="' + styleId + '" >'+style+'</style>');
 
 	           	element.addClass('grid-init');
