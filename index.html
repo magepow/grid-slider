@@ -46,7 +46,7 @@ img{width:100%}
 </div>
 
 <div class="demo2">
-	<ul class="slider grid-slider" 
+	<ul class="slider custom-grid-slider" 
 	data-infinite="true"
 	data-speed="300"
 	data-slides-To-Show="8",
@@ -71,8 +71,8 @@ img{width:100%}
 $(document).ready(function() {
 	var slide = $('.demo').gridSlider().addClass('done');
 	console.log(slide);
-	var slide2 = $('.demo2').gridSlider().addClass('done');
-	console.log(slide);
+	var slide2 = $('.custom-grid-slider').gridSlider().addClass('done');
+	console.log(slide2);
 });
 </script>
 

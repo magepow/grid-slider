@@ -2,23 +2,36 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2021-06-25 14:56:36
+* @Last Modified time: 2021-06-25 17:19:18
 */
-(function( $ ){
 
-    var methods = {
-        options: {
+// jQuery Plugin Boilerplate
+// A boilerplate for jumpstarting jQuery plugins development
+// version 1.1, May 14th, 2011
+// by Stefan Gabos
+
+(function($) {
+
+    $.gridSlider = function(element, options) {
+
+        var defaults = {
             selector: '.grid-slider',
             IntersectionObserver: true
-        },
-        init : function(options) {
-            return this.each(function() {
-            	methods.element = $(this);
-                methods._initSlider();
-            });
-        },
+        }
 
-		_uniqid: function (a = "", b = false) {
+        var plugin = this;
+
+        plugin.settings = {}
+
+        var $element = $(element),
+             element = element;
+
+        plugin.init = function() {
+            plugin.settings = $.extend({}, defaults, options);
+            plugin.initialize();
+        }
+
+		plugin._uniqid = function (a = "", b = false) {
 		    const c = Date.now()/1000;
 		    let d = c.toString(16).split(".").join("");
 		    while(d.length < 14) d += "0";
@@ -28,16 +41,18 @@
 		        e += Math.round(Math.random()*100000000);
 		    }
 		    return a + d + e;
-		},
+		};
 
-	    _initSlider: function () {
-	        var options = this.options;
-	        var useIntersectionObserver = options.IntersectionObserver;
-	        var self = this;
-	        console.log(self);
+	    plugin.initialize = function () {
+	    	var settings = plugin.settings;
+	    	console.log(settings);
+	        var useIntersectionObserver = settings.IntersectionObserver;
+	        var self = plugin;
 	        var $head = $('head');
-	        var elements = options.selector ? self.element.find(options.selector) : self.element;
+	        var elements = $element.find(settings.selector);
+	        if(!elements.length) elements = $element;
 	        elements.each(function() {
+	        	console.log('s');
 	            var element = $(this);
 	            var selector = 'grid-slider-' + self._uniqid();
 	            var styleId  = selector;
@@ -103,12 +118,14 @@
 				});	
 	           	$head.append('<style type="text/css" id="' + styleId + '" >'+style+'</style>');
 
-	           	self.element.addClass('grid-init');
+	           	element.addClass('grid-init');
 	           	
 	        });
-	    },
 
-	    getPesponsive : function (options) {
+	        return this;
+	    };
+
+	    plugin.getPesponsive = function (options) {
 	    	if(!options.slidesToShow || !options.responsive) return options.responsive;
 			var responsive 	= options.responsive;
 			var length = Object.keys(responsive).length;
@@ -119,9 +136,9 @@
 				gridResponsive.push(breakpoint);
 			 });
 			return gridResponsive.reverse();
-	    },
+	    };
 
-	    sliderRender: function (el) {
+	    plugin.sliderRender = function (el) {
 	    	if(el.hasClass('slick-initialized')){
 	    		el.slick("refresh");
 	    		return;
@@ -159,20 +176,21 @@
 	        slider.on( "click", ".item", function() {
 	            el.slick('slickSetOption', "autoplay",false,false);
 	        });
-	    }
-    };
+	    }; 
+
+        plugin.init();
+
+    }
 
     $.fn.gridSlider = function(options) {
-        if ( methods[options] ) {
-            return methods[ options ].apply( this, Array.prototype.slice.call( arguments, 1 ));
-        } else if ( typeof options === 'object' || ! options ) {
-            // Default to "init"
-            return methods.init.apply( this, arguments );
-        } else {
-            $.error( 'Method ' +  options + ' does not exist on jQuery.gridSlider' );
-        }    
-    };
 
+        return this.each(function() {
+            if (undefined == $(this).data('gridSlider')) {
+                var plugin = new $.gridSlider(this, options);
+                $(this).data('gridSlider', plugin);
+            }
+        });
 
-})( jQuery );
+    }
 
+})(jQuery);
