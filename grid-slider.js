@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2021-06-25 17:19:18
+* @Last Modified time: 2021-06-25 17:35:51
 */
 
 // jQuery Plugin Boilerplate
@@ -19,7 +19,7 @@
             IntersectionObserver: true
         }
 
-        var plugin = this;
+        var _ = this;
 
         plugin.settings = {}
 
@@ -28,10 +28,10 @@
 
         plugin.init = function() {
             plugin.settings = $.extend({}, defaults, options);
-            plugin.initialize();
+            plugin._initSlider();
         }
 
-		plugin._uniqid = function (a = "", b = false) {
+		plugin.uniqid = function (a = "", b = false) {
 		    const c = Date.now()/1000;
 		    let d = c.toString(16).split(".").join("");
 		    while(d.length < 14) d += "0";
@@ -43,18 +43,15 @@
 		    return a + d + e;
 		};
 
-	    plugin.initialize = function () {
+	    plugin._initSlider = function () {
 	    	var settings = plugin.settings;
-	    	console.log(settings);
 	        var useIntersectionObserver = settings.IntersectionObserver;
-	        var self = plugin;
 	        var $head = $('head');
 	        var elements = $element.find(settings.selector);
 	        if(!elements.length) elements = $element;
 	        elements.each(function() {
-	        	console.log('s');
 	            var element = $(this);
-	            var selector = 'grid-slider-' + self._uniqid();
+	            var selector = 'grid-slider-' + plugin.uniqid();
 	            var styleId  = selector;
 	            element.addClass(selector);
 	            selector = '.' + selector;
@@ -85,7 +82,7 @@
 									$el.on('init', function(){
 										$head.find('#' + styleId).remove();
 									});
-									self.sliderRender($el);
+									plugin.sliderRender($el);
 									// gridSliderObserver.unobserve(el);
 								}
 							});
@@ -95,10 +92,10 @@
 					    	gridSliderObserver.observe(el);
 					    });
 					} else {
-						self.sliderRender(element);
+						plugin.sliderRender(element);
 					}
 	            }
-	            var responsive 	= self.getPesponsive(options);
+	            var responsive 	= plugin.getPesponsive(options);
 				if(responsive == undefined) return;
 				var length = Object.keys(responsive).length;
 				$.each( responsive, function( key, value ) {
