@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2021-06-25 17:35:51
+* @Last Modified time: 2021-06-25 17:36:47
 */
 
 // jQuery Plugin Boilerplate
@@ -21,17 +21,17 @@
 
         var _ = this;
 
-        plugin.settings = {}
+        _.settings = {}
 
         var $element = $(element),
              element = element;
 
-        plugin.init = function() {
-            plugin.settings = $.extend({}, defaults, options);
-            plugin._initSlider();
+        _.init = function() {
+            _.settings = $.extend({}, defaults, options);
+            _._initSlider();
         }
 
-		plugin.uniqid = function (a = "", b = false) {
+		_.uniqid = function (a = "", b = false) {
 		    const c = Date.now()/1000;
 		    let d = c.toString(16).split(".").join("");
 		    while(d.length < 14) d += "0";
@@ -43,15 +43,15 @@
 		    return a + d + e;
 		};
 
-	    plugin._initSlider = function () {
-	    	var settings = plugin.settings;
+	    _._initSlider = function () {
+	    	var settings = _.settings;
 	        var useIntersectionObserver = settings.IntersectionObserver;
 	        var $head = $('head');
 	        var elements = $element.find(settings.selector);
 	        if(!elements.length) elements = $element;
 	        elements.each(function() {
 	            var element = $(this);
-	            var selector = 'grid-slider-' + plugin.uniqid();
+	            var selector = 'grid-slider-' + _.uniqid();
 	            var styleId  = selector;
 	            element.addClass(selector);
 	            selector = '.' + selector;
@@ -82,7 +82,7 @@
 									$el.on('init', function(){
 										$head.find('#' + styleId).remove();
 									});
-									plugin.sliderRender($el);
+									_.sliderRender($el);
 									// gridSliderObserver.unobserve(el);
 								}
 							});
@@ -92,10 +92,10 @@
 					    	gridSliderObserver.observe(el);
 					    });
 					} else {
-						plugin.sliderRender(element);
+						_.sliderRender(element);
 					}
 	            }
-	            var responsive 	= plugin.getPesponsive(options);
+	            var responsive 	= _.getPesponsive(options);
 				if(responsive == undefined) return;
 				var length = Object.keys(responsive).length;
 				$.each( responsive, function( key, value ) {
@@ -122,7 +122,7 @@
 	        return this;
 	    };
 
-	    plugin.getPesponsive = function (options) {
+	    _.getPesponsive = function (options) {
 	    	if(!options.slidesToShow || !options.responsive) return options.responsive;
 			var responsive 	= options.responsive;
 			var length = Object.keys(responsive).length;
@@ -135,7 +135,7 @@
 			return gridResponsive.reverse();
 	    };
 
-	    plugin.sliderRender = function (el) {
+	    _.sliderRender = function (el) {
 	    	if(el.hasClass('slick-initialized')){
 	    		el.slick("refresh");
 	    		return;
@@ -175,7 +175,7 @@
 	        });
 	    }; 
 
-        plugin.init();
+        _.init();
 
     }
 
