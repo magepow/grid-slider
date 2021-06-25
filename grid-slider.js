@@ -1,8 +1,8 @@
 /*
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
-* @Last Modified by:   nguyen
-* @Last Modified time: 2021-06-24 17:59:17
+* @Last Modified by:   Alex Dong
+* @Last Modified time: 2021-06-25 09:44:36
 */
 
 $.widget('magiccart.gridSlider', {
