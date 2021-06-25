@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2021-06-25 17:44:29
+* @Last Modified time: 2021-06-25 17:58:14
 */
 
 (function($) {
@@ -63,7 +63,7 @@
 	            var padding = options.padding;
 	            var float  	= $('body').hasClass('rtl') ? 'right' : 'left';
 	            var style 	= padding ? classes + '{float: ' + float + '; padding: 0 '+padding+'px; box-sizing: border-box} ' + selector + '{margin: 0 -'+padding+'px}' : '';
-	            $head.append('<style type="text/css" >'+style+'</style>');
+	            if(style) $head.append('<style type="text/css" >'+style+'</style>');
 	            style 		= '';
 	            if(options.slidesToShow){
 					if ("IntersectionObserver" in window && useIntersectionObserver) {
@@ -108,7 +108,7 @@
 					}
 					style += ' {'+selector + '{margin: 0 -'+padding+'px}'+classes+'{padding: 0 '+padding+'px; box-sizing: border-box; width: '+(Math.floor((10/col) * 100000000000) / 10000000000)+'%} '+classes+':nth-child('+col+'n+1){clear: ' + float + ';}}';
 				});	
-				console.log(style);
+
 	           	$head.append('<style type="text/css" id="' + styleId + '" >'+style+'</style>');
 
 	           	element.addClass('grid-init');
