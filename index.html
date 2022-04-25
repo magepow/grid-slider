@@ -24,13 +24,13 @@
 <body>
 
 <div class="demo">
-	<ul class="slider grid-slider" 
+	<ul class="grid-slider autoplay slider grid-slider" 
 	data-infinite="true"
 	data-speed="300"
 	data-padding="15"
-	data-slides-To-Show="4",
+	data-slides-To-Show="6",
 	data-slides-To-Scroll="1",
-	data-responsive= '[{"breakpoint": "1024", "settings": {"slidesToShow": "6"}}, {"breakpoint": "800", "settings": {"slidesToShow": "3"}}, {"breakpoint": "600", "settings": {"slidesToShow": "2"}}, {"breakpoint": "460", "settings": {"slidesToShow": "1"}}]'
+	data-responsive= '[{"breakpoint": "1024", "settings": {"slidesToShow": "6"}}, {"breakpoint": "800", "settings": {"slidesToShow": "3"}}, {"breakpoint": "500", "settings": {"slidesToShow": "5"}}, {"breakpoint": "460", "settings": {"slidesToShow": "1"}}]'
 	>
 		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image1.jpg"/></li>
 		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image2.jpg"/></li>
@@ -47,7 +47,7 @@
 </div>
 
 <div class="demo2">
-	<ul class="slider custom-grid-slider" 
+	<ul class="grid-slider autoplay slider custom-grid-slider" 
 	data-infinite="true"
 	data-speed="300"
 	data-slides-To-Show="8",
@@ -69,9 +69,9 @@
 </div>
 
 <div class="demo3">
-	<ul class="slider custom-grid"
+	<ul class="grid-slider autoplay slider custom-grid"
 		data-padding="10"
-		data-responsive='[{"1":"1"},{"360":"1"},{"479":"1"},{"575":"2"},{"767":"2"},{"991":"2"},{"1199":"3"},{"1479":"4"},{"1919":"4"},{"1920":"4"}]'
+		data-responsive='[{"1":"1"},{"360":"1"},{"479":"1"},{"575":"2"},{"767":"2"},{"991":"2"},{"1199":"3"},{"1479":"4"},{"1919":"4"},{"1920":"5"}]'
 	>
 		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image1.jpg"/></li>
 		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image2.jpg"/></li>
@@ -89,12 +89,13 @@
 
 <script>
 $(document).ready(function() {
-	var slide = $('.demo').gridSlider().addClass('done');
-	console.log(slide);
-	var slide2 = $('.custom-grid-slider').gridSlider().addClass('done');
-	console.log(slide2);
-	console.log($('.custom-grid').data('responsive'));
-	var grid = $('.custom-grid').gridSlider().addClass('done');
+	// var slide = $('.demo').gridSlider().addClass('done');
+	// console.log(slide);
+	// var slide2 = $('.custom-grid-slider').gridSlider().addClass('done');
+	// console.log(slide2);
+	// console.log($('.custom-grid').data('responsive'));
+	// var grid = $('.custom-grid').gridSlider().addClass('done');
+	// $('.grid-slider.autoplay').gridSlider();
 });
 </script>
 
