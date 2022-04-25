@@ -65,12 +65,33 @@
 	</ul>
 </div>
 
+<div class="demo3">
+	<ul class="slider custom-grid"
+		data-padding="10"
+		data-responsive='[{"1":"1"},{"360":"1"},{"479":"1"},{"575":"2"},{"767":"2"},{"991":"2"},{"1199":"3"},{"1479":"4"},{"1919":"4"},{"1920":"4"}]'
+	>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image1.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image2.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image3.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image4.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image5.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image6.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image7.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image8.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image9.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image10.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image11.jpg"/></li>
+	</ul>
+</div>
+
 <script>
 $(document).ready(function() {
 	var slide = $('.demo').gridSlider().addClass('done');
 	console.log(slide);
 	var slide2 = $('.custom-grid-slider').gridSlider().addClass('done');
 	console.log(slide2);
+	console.log($('.custom-grid').data('responsive'));
+	var grid = $('.custom-grid').gridSlider().addClass('done');
 });
 </script>
 
