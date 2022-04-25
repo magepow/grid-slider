@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-04-25 11:46:55
+* @Last Modified time: 2022-04-25 15:06:09
 */
 
 (function($) {
@@ -187,7 +187,7 @@
     }
 
     $( document ).ready(function($) {
-	    $(".grid-slider.autoplay").each(function() {
+	    $(".grid-slider").not('.exception').each(function() {
 	    	$(this).gridSlider();
 	    });
     });
