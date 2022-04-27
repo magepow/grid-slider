@@ -121,7 +121,7 @@
 	    };
 
 	    _.getPesponsive = function (options) {
-	    	if(!options.slidesToShow || !options.responsive) return options.responsive;
+	    	if(!options.slidesToShow || !options.responsive) return options.responsive.reverse();
 			var responsive 	= options.responsive;
 			var length = Object.keys(responsive).length;
 			var gridResponsive = [];
