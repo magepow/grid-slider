@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-04-25 15:06:09
+* @Last Modified time: 2022-04-27 17:26:39
 */
 
 (function($) {
@@ -59,7 +59,8 @@
 	                element.children().addClass('alo-item');
 	                var iClass = '.alo-item';
 	            }
-	            var classes	= selector + ' ' + iClass;
+				var rows 	= ((options || {}).rows === void 0) ? 1 : options.rows;
+				var classes	= rows ? selector + ' '+ iClass : selector + ' .slick-track > '+ iClass;
 	            var padding = ((options || {}).padding === void 0) ? 0 : options.padding;
 	            var float  	= $('body').hasClass('rtl') ? 'right' : 'left';
 	            var style 	= classes + '{float: ' + float + '; padding: 0 '+padding+'px; box-sizing: border-box} ' + selector + '{margin: 0 -'+padding+'px}';
@@ -106,7 +107,8 @@
 						$.each( responsive[key], function( size, num) { maxWith = size; col = num;});
 						style += ' @media (min-width: '+maxWith+'px)';
 					}
-					style += ' {'+selector + '{margin: 0 -'+padding+'px}'+classes+'{padding: 0 '+padding+'px; box-sizing: border-box; width: '+(Math.floor((10/col) * 100000000000) / 10000000000)+'%} '+classes+':nth-child('+col+'n+1){clear: ' + float + ';}}';
+					let clearRtl = (rows != 1) ? classes+':nth-child('+col+'n+1){clear: ' + float + ';}' : ' ';  
+					style += ' {'+selector + '{margin: 0 -'+padding+'px}'+classes+'{padding: 0 '+padding+'px; box-sizing: border-box; width: '+(Math.floor((10/col) * 100000000000) / 10000000000)+'%} '+clearRtl+'}';
 				});	
 
 	           	$head.append('<style type="text/css" id="' + styleId + '" >'+style+'</style>');
@@ -187,7 +189,7 @@
     }
 
     $( document ).ready(function($) {
-	    $(".grid-slider").not('.exception').each(function() {
+	    $(".grid-slider.autoplay").each(function() {
 	    	$(this).gridSlider();
 	    });
     });
