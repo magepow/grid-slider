@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-04-27 17:26:39
+* @Last Modified time: 2022-04-27 17:27:13
 */
 
 (function($) {
@@ -11,7 +11,7 @@
 
         var defaults = {
             selector: '.grid-slider',
-            IntersectionObserver: true
+            IntersectionObserver: false
         }
 
         var _ = this;
