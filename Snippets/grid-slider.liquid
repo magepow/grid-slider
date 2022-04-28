@@ -97,9 +97,9 @@ Use in html:
 
 {% comment %}
 
-    settings_schema
+Add to settings_schema:
 
-    {
+	  {
         "type": "header",
         "content": "---- Slider Show Collection ----",
         "info": "Refer to the attribute values [here](httpss://kenwheeler.github.io/slick)"
@@ -140,17 +140,22 @@ Use in html:
             {  
                 "value": "6",  
                 "label": "6"  
-            },  
+            },
             {  
                 "value": "7",  
                 "label": "7"  
-            }  
+            },
+            {  
+                "value": "8",  
+                "label": "8"  
+            }
         ]  
     },   
     {  
         "type": "select",  
         "id": "visible",  
-        "label": "Columns in Visible",  
+        "label": "Columns in Visible",
+		"info": "Item(s) in screen ( Size >= 1920 )", 
         "default": "5",  
         "options": [  
             {  
@@ -176,13 +181,18 @@ Use in html:
             {  
                 "value": "7",  
                 "label": "7"  
-            }   
+            },
+            {  
+                "value": "8",  
+                "label": "8"  
+            }     
         ]  
     },
     {  
         "type": "select",  
         "id": "widescreen",  
-        "label": "Columns in Widescreen",   
+        "label": "Columns in Widescreen",
+		"info": "Item(s) in screen ( 1366 <= Size < 1920 )",
         "default": "4",  
         "options": [  
             {  
@@ -208,13 +218,18 @@ Use in html:
             {  
             "value": "7",  
             "label": "7"  
+            },
+            {  
+                "value": "8",  
+                "label": "8"  
             }   
         ]  
     },  
     {  
         "type": "select",  
         "id": "desktop",  
-        "label": "Columns in Desktop",  
+        "label": "Columns in Desktop",
+		"info":  "Item(s) in screen ( 1200 <= Size < 1480 )",
         "default": "4",  
         "options": [  
             {  
@@ -240,13 +255,18 @@ Use in html:
             {  
                 "value": "7",  
                 "label": "7"  
+            },
+            {  
+                "value": "8",  
+                "label": "8"  
             }     
         ]  
     },	  
     {  
         "type": "select",  
         "id": "laptop",  
-        "label": "Columns in Laptop",   
+        "label": "Columns in Laptop",
+		"info": "Item(s) in screen ( 992 <= Size < 1200 )",
         "default": "4",  
         "options": [  
             {  
@@ -268,13 +288,22 @@ Use in html:
             {  
                 "value": "6",  
                 "label": "6"  
+            },
+            {  
+                "value": "7",  
+                "label": "7"  
+            },
+            {  
+                "value": "8",  
+                "label": "8"  
             } 
         ]  
     },	  
     {  
         "type": "select",  
         "id": "notebook",  
-        "label": "Columns in Notebook",  
+        "label": "Columns in Notebook",
+		"info": "Item(s) in screen ( 768 <= Size < 992 )",
         "default": "3",  
         "options": [  
             {  
@@ -296,13 +325,18 @@ Use in html:
             {  
             "value": "5",  
             "label": "5"  
+            },
+            {  
+                "value": "6",  
+                "label": "6"  
             } 
         ]  
     },  
     {  
         "type": "select",  
         "id": "tablet",  
-        "label": "Columns in Tablet",  
+        "label": "Columns in Tablet",
+		"info": "Item(s) in screen ( 576 <= Size < 768 )",
         "default": "3",  
         "options": [  
             {  
@@ -320,13 +354,18 @@ Use in html:
             {  
                 "value": "4",  
                 "label": "4"  
+            },
+            {  
+                "value": "5",  
+                "label": "5"  
             }
         ]  
     },
     {  
         "type": "select",  
         "id": "landscape",  
-        "label": "Columns in Landscape",  
+        "label": "Columns in Landscape",
+		"info": "Item(s) in screen ( 480 <= Size < 576 )",
         "default": "2",  
         "options": [  
             {  
@@ -350,7 +389,8 @@ Use in html:
     {  
         "type": "select",  
         "id": "portrait",  
-        "label": "Columns in Portrait",  
+        "label": "Columns in Portrait",
+		"info": "Item(s) in screen ( 360 < Size < 480 )",
         "default": "2",  
         "options": [  
             {  
@@ -370,7 +410,8 @@ Use in html:
     {  
         "type": "select",  
         "id": "mobile",  
-        "label": "Columns in Mobile",  
+        "label": "Columns in Mobile",
+		"info": "Item(s) in screen ( Size <= 360 )",
         "default": "1",  
         "options": [  
             {  
