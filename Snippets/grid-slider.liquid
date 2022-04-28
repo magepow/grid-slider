@@ -94,30 +94,62 @@ Use in html:
 
 {% comment %}
 
-    settings_schema
-
-    {
-        "type": "header",
-        "content": "---- Slider Show Collection ----",
-        "info": "Refer to the attribute values [here](httpss://kenwheeler.github.io/slick)"
-    }, 	
-    {
-        "type": "checkbox",
-        "id": "use-slider",
-        "label": "Use slider?",
-        "default": true
-    },
-    {  
-        "type": "select",  
-        "id": "slides-To-Scroll",  
-        "label": "Slide to scroll",  
-        "info": "The number of items slide to scroll",  
-        "default": "5",  
-        "options": [  
-            {  
-                "value": "1",  
-                "label": "1"  
-            },
+    Settings_schema
+        {
+            "type": "header",
+            "content": "---- Slider Show Collection ----",
+            "info": "Refer to the attribute values [here](https://kenwheeler.github.io/slick)"
+        }, 	
+        {
+            "type": "checkbox",
+            "id": "use-slider",
+            "label": "Use slider?",
+            "default": true
+        },
+        {  
+            "type": "select",  
+            "id": "slides-To-Scroll",  
+            "label": "Slide to scroll",  
+            "info": "The number of items slide to scroll",  
+            "default": "1",  
+            "options": [  
+                {  
+                    "value": "1",  
+                    "label": "1"  
+                },
+                {  
+                    "value": "2",  
+                    "label": "2"  
+                },  
+                {  
+                    "value": "3",  
+                    "label": "3"  
+                },  
+                {  
+                    "value": "4",  
+                    "label": "4"  
+                },  
+                {  
+                    "value": "5",  
+                    "label": "5"  
+                },  
+                {  
+                    "value": "6",  
+                    "label": "6"  
+                },  
+                {  
+                    "value": "7",  
+                    "label": "7"  
+                }  
+            ]  
+        },
+        {  
+            "type": "select",  
+            "id": "slides-To-Show",  
+            "label": "Slide to show",  
+            "info": "The number of items slide to show",     
+            "default": "5",  
+            "options": [  
             {  
                 "value": "2",  
                 "label": "2"  
@@ -142,364 +174,331 @@ Use in html:
                 "value": "7",  
                 "label": "7"  
             }  
-        ]  
-    },
-    {  
-        "type": "select",  
-        "id": "slides-To-Show",  
-        "label": "Slide to show",  
-        "info": "The number of items slide to show",  
-        "default": "5",  
-        "options": [  
+            ]  
+        },   
         {  
-            "value": "2",  
-            "label": "2"  
-        },  
+            "type": "select",  
+            "id": "visible",  
+            "label": "Columns in Visible",  
+            "default": "5",  
+            "options": [  
+                {  
+                    "value": "2",  
+                    "label": "2"  
+                },  
+                {  
+                    "value": "3",  
+                    "label": "3"  
+                },  
+                {  
+                    "value": "4",  
+                    "label": "4"  
+                },  
+                {  
+                    "value": "5",  
+                    "label": "5"  
+                },
+                {  
+                    "value": "6",  
+                    "label": "6"  
+                },
+                {  
+                    "value": "7",  
+                    "label": "7"  
+                }   
+            ]  
+        },
         {  
-            "value": "3",  
-            "label": "3"  
-        },  
-        {  
-            "value": "4",  
-            "label": "4"  
-        },  
-        {  
-            "value": "5",  
-            "label": "5"  
-        },  
-        {  
-            "value": "6",  
-            "label": "6"  
-        },  
-        {  
-            "value": "7",  
-            "label": "7"  
-        }  
-        ]  
-    },   
-    {  
-        "type": "select",  
-        "id": "visible",  
-        "label": "Columns in Visible",  
-        "default": "5",  
-        "options": [  
-            {  
+            "type": "select",  
+            "id": "widescreen",  
+            "label": "Columns in Widescreen",   
+            "default": "4",  
+            "options": [  
+                {  
                 "value": "2",  
                 "label": "2"  
-            },  
-            {  
+                },  
+                {  
                 "value": "3",  
                 "label": "3"  
-            },  
-            {  
+                },  
+                {  
                 "value": "4",  
                 "label": "4"  
-            },  
-            {  
+                },
+                {  
                 "value": "5",  
                 "label": "5"  
-            },
-            {  
+                },
+                {  
                 "value": "6",  
                 "label": "6"  
-            },
-            {  
+                },
+                {  
                 "value": "7",  
                 "label": "7"  
-            }   
-        ]  
-    },
-    {  
-        "type": "select",  
-        "id": "widescreen",  
-        "label": "Columns in Widescreen",   
-        "default": "4",  
-        "options": [  
-            {  
-            "value": "2",  
-            "label": "2"  
-            },  
-            {  
-            "value": "3",  
-            "label": "3"  
-            },  
-            {  
-            "value": "4",  
-            "label": "4"  
-            },
-            {  
-            "value": "5",  
-            "label": "5"  
-            },
-            {  
-            "value": "6",  
-            "label": "6"  
-            },
-            {  
-            "value": "7",  
-            "label": "7"  
-            }   
-        ]  
-    },  
-    {  
-        "type": "select",  
-        "id": "desktop",  
-        "label": "Columns in Desktop",  
-        "default": "4",  
-        "options": [  
-            {  
+                }   
+            ]  
+        },  
+        {  
+            "type": "select",  
+            "id": "desktop",  
+            "label": "Columns in Desktop",  
+            "default": "4",  
+            "options": [  
+                {  
+                    "value": "2",  
+                    "label": "2"  
+                },  
+                {  
+                    "value": "3",  
+                    "label": "3"  
+                },  
+                {  
+                    "value": "4",  
+                    "label": "4"  
+                },
+                {  
+                    "value": "5",  
+                    "label": "5"  
+                },
+                {  
+                    "value": "6",  
+                    "label": "6"  
+                },
+                {  
+                    "value": "7",  
+                    "label": "7"  
+                }     
+            ]  
+        },	  
+        {  
+            "type": "select",  
+            "id": "laptop",  
+            "label": "Columns in Laptop",   
+            "default": "4",  
+            "options": [  
+                {  
+                    "value": "2",  
+                    "label": "2"  
+                },  
+                {  
+                    "value": "3",  
+                    "label": "3"  
+                },  
+                {  
+                    "value": "4",  
+                    "label": "4"  
+                },
+                {  
+                    "value": "5",  
+                    "label": "5"  
+                },
+                {  
+                    "value": "6",  
+                    "label": "6"  
+                } 
+            ]  
+        },	  
+        {  
+            "type": "select",  
+            "id": "notebook",  
+            "label": "Columns in Notebook",  
+            "default": "3",  
+            "options": [  
+                {  
+                "value": "1",  
+                "label": "1"  
+                },  
+                {  
                 "value": "2",  
                 "label": "2"  
-            },  
-            {  
+                },
+                {  
                 "value": "3",  
                 "label": "3"  
-            },  
-            {  
+                },  
+                {  
                 "value": "4",  
                 "label": "4"  
-            },
-            {  
+                },
+                {  
                 "value": "5",  
                 "label": "5"  
-            },
-            {  
-                "value": "6",  
-                "label": "6"  
-            },
-            {  
-                "value": "7",  
-                "label": "7"  
-            }     
-        ]  
-    },	  
-    {  
-        "type": "select",  
-        "id": "laptop",  
-        "label": "Columns in Laptop",   
-        "default": "4",  
-        "options": [  
-            {  
-                "value": "2",  
-                "label": "2"  
-            },  
-            {  
-                "value": "3",  
-                "label": "3"  
-            },  
-            {  
-                "value": "4",  
-                "label": "4"  
-            },
-            {  
-                "value": "5",  
-                "label": "5"  
-            },
-            {  
-                "value": "6",  
-                "label": "6"  
-            } 
-        ]  
-    },	  
-    {  
-        "type": "select",  
-        "id": "notebook",  
-        "label": "Columns in Notebook",  
-        "default": "3",  
-        "options": [  
-            {  
-            "value": "1",  
-            "label": "1"  
-            },  
-            {  
-            "value": "2",  
-            "label": "2"  
-            },
-            {  
-            "value": "3",  
-            "label": "3"  
-            },  
-            {  
-            "value": "4",  
-            "label": "4"  
-            },
-            {  
-            "value": "5",  
-            "label": "5"  
-            } 
-        ]  
-    },  
-    {  
-        "type": "select",  
-        "id": "tablet",  
-        "label": "Columns in Tablet",  
-        "default": "3",  
-        "options": [  
-            {  
-                "value": "1",  
-                "label": "1"  
-            },  
-            {  
-                "value": "2",  
-                "label": "2"  
-            },
-            {  
-                "value": "3",  
-                "label": "3"  
-            },  
-            {  
-                "value": "4",  
-                "label": "4"  
-            }
-        ]  
-    },
-    {  
-        "type": "select",  
-        "id": "landscape",  
-        "label": "Columns in Landscape",  
-        "default": "2",  
-        "options": [  
-            {  
-                "value": "1",  
-                "label": "1"  
-            },  
-            {  
-                "value": "2",  
-                "label": "2"  
-            },
-            {  
-                "value": "3",  
-                "label": "3"  
-            },  
-            {  
-                "value": "4",  
-                "label": "4"  
-            }
-        ]  
-    }, 
-    {  
-        "type": "select",  
-        "id": "portrait",  
-        "label": "Columns in Portrait",  
-        "default": "2",  
-        "options": [  
-            {  
-                "value": "1",  
-                "label": "1"  
-            },  
-            {  
-                "value": "2",  
-                "label": "2"  
-            },
-            {  
-                "value": "3",  
-                "label": "3"  
-            }
-        ]  
-    },
-    {  
-        "type": "select",  
-        "id": "mobile",  
-        "label": "Columns in Mobile",  
-        "default": "1",  
-        "options": [  
-            {  
-                "value": "1",  
-                "label": "1"  
-            },  
-            {  
-                "value": "2",  
-                "label": "2"  
-            }  
-        ]  
-    },
-    {  
-        "type": "select",  
-        "id": "rows",  
-        "label": "Rows",  
-        "default": "1",  
-        "options": [  
-            {  
-                "value": "1",  
-                "label": "1"  
-            },  
-            {  
-                "value": "2",  
-                "label": "2"  
-            },
-            {  
-                "value": "3",  
-                "label": "3"  
-            }  
-        ]  
-    },
-    {
-        "type": "checkbox",
-        "id": "autoplay",
-        "label": "Autoplay",
-        "default": true
-    },
-    {	
-        "type": "text",
-        "id": "speed",
-        "label": "Speed",
-        "default": "300",
-        "info": "Autoplay Speed in milliseconds"
-    },
-    {	
-        "type": "text",
-        "id": "autoplay-Speed",
-        "label": "Auto Play Speed",
-        "default": "3000",
-        "info": "Autoplay Speed in milliseconds"
-    },
-    {	
-        "type": "checkbox",
-        "id": "arrows",
-        "label": "Arrows",
-        "default": true
-    },
-    {	
-        "type": "checkbox",
-        "id": "fade",
-        "label": "Fade",
-        "default": false,
-        "info": "Only use for 1 column"
-    },
-    {	
-        "type": "checkbox",
-        "id": "center-Mode",
-        "label": "Center Mode",
-        "default": false
-    },
-    {	
-        "type": "checkbox",
-        "id": "adaptive-Height",
-        "label": "Adaptive Height",
-        "default": false
-    },
-    {	
-        "type": "checkbox",
-        "id": "dots",
-        "label": "Dots",
-        "default": false 
-    },
-    {	
-        "type": "checkbox",
-        "id": "infinite",
-        "label": "Infinite",
-        "default": false
-    },
-    {
-        "type": "number",
-        "id": "padding",
-        "label": "Padding",
-        "default": 15
-    },
-    {	
-        "type": "checkbox",
-        "id": "vertical",
-        "label": "Vertical",
-        "default": false
-    },
+                } 
+            ]  
+        },  
+        {  
+            "type": "select",  
+            "id": "tablet",  
+            "label": "Columns in Tablet",  
+            "default": "3",  
+            "options": [  
+                {  
+                    "value": "1",  
+                    "label": "1"  
+                },  
+                {  
+                    "value": "2",  
+                    "label": "2"  
+                },
+                {  
+                    "value": "3",  
+                    "label": "3"  
+                },  
+                {  
+                    "value": "4",  
+                    "label": "4"  
+                }
+            ]  
+        },
+        {  
+            "type": "select",  
+            "id": "landscape",  
+            "label": "Columns in Landscape",  
+            "default": "2",  
+            "options": [  
+                {  
+                    "value": "1",  
+                    "label": "1"  
+                },  
+                {  
+                    "value": "2",  
+                    "label": "2"  
+                },
+                {  
+                    "value": "3",  
+                    "label": "3"  
+                },  
+                {  
+                    "value": "4",  
+                    "label": "4"  
+                }
+            ]  
+        }, 
+        {  
+            "type": "select",  
+            "id": "portrait",  
+            "label": "Columns in Portrait",  
+            "default": "2",  
+            "options": [  
+                {  
+                    "value": "1",  
+                    "label": "1"  
+                },  
+                {  
+                    "value": "2",  
+                    "label": "2"  
+                },
+                {  
+                    "value": "3",  
+                    "label": "3"  
+                }
+            ]  
+        },
+        {  
+            "type": "select",  
+            "id": "mobile",  
+            "label": "Columns in Mobile",  
+            "default": "1",  
+            "options": [  
+                {  
+                    "value": "1",  
+                    "label": "1"  
+                },  
+                {  
+                    "value": "2",  
+                    "label": "2"  
+                }  
+            ]  
+        },
+        {  
+            "type": "select",  
+            "id": "rows",  
+            "label": "Rows",  
+            "default": "1",  
+            "options": [  
+                {  
+                    "value": "1",  
+                    "label": "1"  
+                },  
+                {  
+                    "value": "2",  
+                    "label": "2"  
+                },
+                {  
+                    "value": "3",  
+                    "label": "3"  
+                }  
+            ]  
+        },
+        {
+            "type": "checkbox",
+            "id": "autoplay",
+            "label": "Autoplay",
+            "default": true
+        },
+        {	
+            "type": "text",
+            "id": "speed",
+            "label": "Speed",
+            "default": "300",
+            "info": "Autoplay Speed in milliseconds"
+        },
+        {	
+            "type": "text",
+            "id": "autoplay-Speed",
+            "label": "Auto Play Speed",
+            "default": "3000",
+            "info": "Autoplay Speed in milliseconds"
+        },
+        {	
+            "type": "checkbox",
+            "id": "arrows",
+            "label": "Arrows",
+            "default": true
+        },
+        {	
+            "type": "checkbox",
+            "id": "fade",
+            "label": "Fade",
+            "default": false,
+            "info": "Used only for sliders with 'Slide to show' by 1 item"
+        },
+        {	
+            "type": "checkbox",
+            "id": "center-Mode",
+            "label": "Center Mode",
+            "default": false
+        },
+        {	
+            "type": "checkbox",
+            "id": "adaptive-Height",
+            "label": "Adaptive Height",
+            "default": false
+        },
+        {	
+            "type": "checkbox",
+            "id": "dots",
+            "label": "Dots",
+            "default": false 
+        },
+        {	
+            "type": "checkbox",
+            "id": "infinite",
+            "label": "Infinite",
+            "default": false
+        },
+        {
+            "type": "number",
+            "id": "padding",
+            "label": "Padding",
+            "default": 15
+        },
+        {	
+            "type": "checkbox",
+            "id": "vertical",
+            "label": "Vertical",
+            "default": false
+        }
 {% endcomment %}
