@@ -70,8 +70,11 @@
 {% comment %}
 
 Use in section:  
-    {% include 'grid-slider', settings:settings %}
+    {% include 'grid-slider', settings:section.settings %}
 
+Use in block in section:  
+    {% include 'grid-slider', settings:block.settings %}
+                                                             
 Use in html: 
     <div class="grid-slider" {{gridSlider}}>
         <li><img src="https://www.starplugins.com/sites/starplugins/images/jetzoom/large/image1.jpg"/></li>
