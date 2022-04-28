@@ -45,7 +45,7 @@
 {% endif %} 
 
 {%  assign configScreen = configScreen | strip_newlines | replace: " ", "" | split: "," %}
-{%  assign responsive ='['  %}
+{%  assign responsive = '['  %}
 {% for cfg in configScreen %}
     {% assign size = cfg | split: '=>' | first | strip %}
     {% assign name = cfg  | split: '=>' | last | strip %}
