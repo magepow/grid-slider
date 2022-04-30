@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-04-27 17:29:07
+* @Last Modified time: 2022-04-30 15:49:47
 */
 
 (function($) {
@@ -90,6 +90,11 @@
 					} else {
 						_.sliderRender(element);
 					}
+	            }
+	            if(options.appendArrows || options.appendDots){
+                  	var wrapper = options.wrapper ? element.find(options.wrapper) : element.parent();
+                	if(options.appendArrows) element.data('append-Arrows', wrapper.find(options.appendArrows));
+                  	if(options.appendDots) element.data('append-Dots', wrapper.find(options.appendDots));
 	            }
 	            var responsive 	= _.getPesponsive(options);
 				if(responsive == undefined) return;
