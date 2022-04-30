@@ -69,7 +69,7 @@
     {% endif %} 
 {% endfor %}
 
-{% capture gridSlider %} data-shopify-section-id='{{id}}' {{gridSlider}} data-responsive='{{responsive}}' {% endcapture %}
+{% capture gridSlider %} data-wrapper='#shopify-section-{{id}}' {{gridSlider}} data-responsive='{{responsive}}' {% endcapture %}
 {% assign grid-slider = gridSlider %}
 
 {% comment %}
