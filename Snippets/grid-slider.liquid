@@ -12,21 +12,23 @@
 {% endcapture %}
 
 {% capture configSlick %}
-    autoplay, 
-    arrows, 
-    fade, 
-    center-Mode, 
     adaptive-Height,
-    speed, 
+    append-Arrows,
+    append-Dots,
+    autoplay,
     autoplay-Speed,
-    dots, 
-    infinite, 
-    padding, 
-    vertical, 
-    vertical-Swiping,
-    rows, 
+    arrows,
+    center-Mode,
+    dots,
+    fade,
+    infinite,
+    padding,
+    rows,
     slides-To-Show,
-    slides-To-Scroll
+    slides-To-Scroll,
+    speed, 
+    vertical, 
+    vertical-Swiping
 {% endcapture %}
 {%  assign gridSlider = '' %}
 {% if settings.use-slider == true %}
@@ -67,7 +69,7 @@
     {% endif %} 
 {% endfor %}
 
-{% capture gridSlider %}{{gridSlider}} data-responsive='{{responsive}}'{% endcapture %}
+{% capture gridSlider %} data-shopify-section-id='{{id}}' {{gridSlider}} data-responsive='{{responsive}}' {% endcapture %}
 {% assign grid-slider = gridSlider %}
 
 {% comment %}
@@ -99,7 +101,7 @@ Use in html:
 
 Add to settings_schema:
 
-	  {
+	{
         "type": "header",
         "content": "---- Slider Show Collection ----",
         "info": "Refer to the attribute values [here](httpss://kenwheeler.github.io/slick)"
