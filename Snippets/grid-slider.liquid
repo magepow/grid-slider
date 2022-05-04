@@ -101,11 +101,11 @@ Use in html:
 
 Add to settings_schema:
 
-	{
+    {
         "type": "header",
         "content": "---- Slider Show Collection ----",
         "info": "Refer to the attribute values [here](httpss://kenwheeler.github.io/slick)"
-    }, 	
+    },  
     {
         "type": "checkbox",
         "id": "use-slider",
@@ -113,338 +113,124 @@ Add to settings_schema:
         "default": true
     },
     {  
-        "type": "select",  
+        "type": "range",  
         "id": "slides-To-Scroll",  
         "label": "Slide to scroll",  
-        "info": "The number of items slide to scroll",  
-        "default": "1",  
-        "options": [  
-            {  
-                "value": "1",  
-                "label": "1"  
-            },
-            {  
-                "value": "2",  
-                "label": "2"  
-            },  
-            {  
-                "value": "3",  
-                "label": "3"  
-            },  
-            {  
-                "value": "4",  
-                "label": "4"  
-            },  
-            {  
-                "value": "5",  
-                "label": "5"  
-            },  
-            {  
-                "value": "6",  
-                "label": "6"  
-            },
-            {  
-                "value": "7",  
-                "label": "7"  
-            },
-            {  
-                "value": "8",  
-                "label": "8"  
-            }
-        ]  
+        "info": "The number of items slide to scroll",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "pds",
+        "default": 1
     },   
     {  
-        "type": "select",  
+        "type": "range",  
         "id": "visible",  
         "label": "Columns in Visible",
-		"info": "Item(s) in screen ( Size >= 1920 )", 
-        "default": "5",  
-        "options": [  
-            {  
-                "value": "2",  
-                "label": "2"  
-            },  
-            {  
-                "value": "3",  
-                "label": "3"  
-            },  
-            {  
-                "value": "4",  
-                "label": "4"  
-            },  
-            {  
-                "value": "5",  
-                "label": "5"  
-            },
-            {  
-                "value": "6",  
-                "label": "6"  
-            },
-            {  
-                "value": "7",  
-                "label": "7"  
-            },
-            {  
-                "value": "8",  
-                "label": "8"  
-            }     
-        ]  
+        "info": "Item(s) in screen ( Size >= 1920 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "pds",
+        "default": 5 
     },
     {  
-        "type": "select",  
+        "type": "range",  
         "id": "widescreen",  
         "label": "Columns in Widescreen",
-		"info": "Item(s) in screen ( 1366 <= Size < 1920 )",
-        "default": "4",  
-        "options": [  
-            {  
-            "value": "2",  
-            "label": "2"  
-            },  
-            {  
-            "value": "3",  
-            "label": "3"  
-            },  
-            {  
-            "value": "4",  
-            "label": "4"  
-            },
-            {  
-            "value": "5",  
-            "label": "5"  
-            },
-            {  
-            "value": "6",  
-            "label": "6"  
-            },
-            {  
-            "value": "7",  
-            "label": "7"  
-            },
-            {  
-                "value": "8",  
-                "label": "8"  
-            }   
-        ]  
+        "info": "Item(s) in screen ( 1366 <= Size < 1920 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "pds",
+        "default": 4 
     },  
     {  
-        "type": "select",  
+        "type": "range",  
         "id": "desktop",  
         "label": "Columns in Desktop",
-		"info":  "Item(s) in screen ( 1200 <= Size < 1480 )",
-        "default": "4",  
-        "options": [  
-            {  
-                "value": "2",  
-                "label": "2"  
-            },  
-            {  
-                "value": "3",  
-                "label": "3"  
-            },  
-            {  
-                "value": "4",  
-                "label": "4"  
-            },
-            {  
-                "value": "5",  
-                "label": "5"  
-            },
-            {  
-                "value": "6",  
-                "label": "6"  
-            },
-            {  
-                "value": "7",  
-                "label": "7"  
-            },
-            {  
-                "value": "8",  
-                "label": "8"  
-            }     
-        ]  
-    },	  
+        "info":  "Item(s) in screen ( 1200 <= Size < 1480 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "pds",
+        "default": 4  
+    },    
     {  
-        "type": "select",  
+        "type": "range",  
         "id": "laptop",  
         "label": "Columns in Laptop",
-		"info": "Item(s) in screen ( 992 <= Size < 1200 )",
-        "default": "4",  
-        "options": [  
-            {  
-                "value": "2",  
-                "label": "2"  
-            },  
-            {  
-                "value": "3",  
-                "label": "3"  
-            },  
-            {  
-                "value": "4",  
-                "label": "4"  
-            },
-            {  
-                "value": "5",  
-                "label": "5"  
-            },
-            {  
-                "value": "6",  
-                "label": "6"  
-            },
-            {  
-                "value": "7",  
-                "label": "7"  
-            },
-            {  
-                "value": "8",  
-                "label": "8"  
-            } 
-        ]  
-    },	  
+        "info": "Item(s) in screen ( 992 <= Size < 1200 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "pds",
+        "default": 4
+    },    
     {  
-        "type": "select",  
+        "type": "range",  
         "id": "notebook",  
         "label": "Columns in Notebook",
-		"info": "Item(s) in screen ( 768 <= Size < 992 )",
-        "default": "3",  
-        "options": [  
-            {  
-            "value": "1",  
-            "label": "1"  
-            },  
-            {  
-            "value": "2",  
-            "label": "2"  
-            },
-            {  
-            "value": "3",  
-            "label": "3"  
-            },  
-            {  
-            "value": "4",  
-            "label": "4"  
-            },
-            {  
-            "value": "5",  
-            "label": "5"  
-            },
-            {  
-                "value": "6",  
-                "label": "6"  
-            } 
-        ]  
+        "info": "Item(s) in screen ( 768 <= Size < 992 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "pds",
+        "default": 3  
     },  
     {  
-        "type": "select",  
+        "type": "range",  
         "id": "tablet",  
         "label": "Columns in Tablet",
-		"info": "Item(s) in screen ( 576 <= Size < 768 )",
-        "default": "3",  
-        "options": [  
-            {  
-                "value": "1",  
-                "label": "1"  
-            },  
-            {  
-                "value": "2",  
-                "label": "2"  
-            },
-            {  
-                "value": "3",  
-                "label": "3"  
-            },  
-            {  
-                "value": "4",  
-                "label": "4"  
-            },
-            {  
-                "value": "5",  
-                "label": "5"  
-            }
-        ]  
+        "info": "Item(s) in screen ( 576 <= Size < 768 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "pds",
+        "default": 3 
     },
     {  
-        "type": "select",  
+        "type": "range",  
         "id": "landscape",  
         "label": "Columns in Landscape",
-		"info": "Item(s) in screen ( 480 <= Size < 576 )",
-        "default": "2",  
-        "options": [  
-            {  
-                "value": "1",  
-                "label": "1"  
-            },  
-            {  
-                "value": "2",  
-                "label": "2"  
-            },
-            {  
-                "value": "3",  
-                "label": "3"  
-            },  
-            {  
-                "value": "4",  
-                "label": "4"  
-            }
-        ]  
+        "info": "Item(s) in screen ( 480 <= Size < 576 )",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "unit": "pds",
+        "default": 2 
     }, 
     {  
-        "type": "select",  
+        "type": "range",  
         "id": "portrait",  
         "label": "Columns in Portrait",
-		"info": "Item(s) in screen ( 360 < Size < 480 )",
-        "default": "2",  
-        "options": [  
-            {  
-                "value": "1",  
-                "label": "1"  
-            },  
-            {  
-                "value": "2",  
-                "label": "2"  
-            },
-            {  
-                "value": "3",  
-                "label": "3"  
-            }
-        ]  
+        "info": "Item(s) in screen ( 360 < Size < 480 )",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "unit": "pds",
+        "default": 2 
     },
     {  
-        "type": "select",  
+        "type": "range",  
         "id": "mobile",  
         "label": "Columns in Mobile",
-		"info": "Item(s) in screen ( Size <= 360 )",
-        "default": "1",  
-        "options": [  
-            {  
-                "value": "1",  
-                "label": "1"  
-            },  
-            {  
-                "value": "2",  
-                "label": "2"  
-            }  
-        ]  
+        "info": "Item(s) in screen ( Size < = 360 )",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "unit": "pds",
+        "default": 1 
     },
     {  
-        "type": "select",  
+        "type": "range",  
         "id": "rows",  
-        "label": "Rows",  
-        "default": "1",  
-        "options": [  
-            {  
-                "value": "1",  
-                "label": "1"  
-            },  
-            {  
-                "value": "2",  
-                "label": "2"  
-            },
-            {  
-                "value": "3",  
-                "label": "3"  
-            }  
-        ]  
+        "label": "Rows Slider",  
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "unit": "pds",
+        "default": 1
     },
     {
         "type": "checkbox",
