@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-04-30 15:51:16
+* @Last Modified time: 2022-05-04 19:39:04
 */
 
 (function($) {
@@ -126,7 +126,8 @@
 	    };
 
 	    _.getPesponsive = function (options) {
-	    	if(!options.slidesToShow || !options.responsive) return options.responsive.reverse();
+	    	if(!options.responsive) return;
+            if(!options.slidesToShow) return options.responsive.reverse();
 			var responsive 	= options.responsive;
 			var length = Object.keys(responsive).length;
 			var gridResponsive = [];
