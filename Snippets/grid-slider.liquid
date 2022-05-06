@@ -30,7 +30,7 @@
     vertical, 
     vertical-Swiping
 {% endcapture %}
-{%  assign gridSlider = '' %}
+{% assign gridSlider = '' %}
 {% if settings.use-slider == true %}
     {%  assign configSlick  = configSlick | strip_newlines | replace: " ", "" | split: "," %}
     {% for opt in configSlick %}
