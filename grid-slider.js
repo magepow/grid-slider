@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-05-27 22:03:53
+* @Last Modified time: 2022-05-27 22:13:40
 */
 
 (function($) {
@@ -14,12 +14,9 @@
             IntersectionObserver: false
         }
 
-        var _ = this;
-
-        _.settings = {}
-
-        var $element = $(element),
-             element = element;
+        var _ = this,
+            $element = $(element);
+        	_.settings = {};
 
         _.init = function() {
             _.settings = $.extend({}, defaults, options);
@@ -114,11 +111,9 @@
 					let clearRtl = (rows != 1) ? classes+':nth-child('+col+'n+1){clear: ' + float + ';}' : ' ';  
 					style += ' {'+selector + '{margin: 0 -'+padding+'px}'+classes+'{padding: 0 '+padding+'px; box-sizing: border-box; width: '+(Math.floor((10/col) * 100000000000) / 10000000000)+'%} '+clearRtl+'}';
 				});	
-
 	           	$head.append('<style type="text/css" id="' + styleId + '" >'+style+'</style>');
 	           	element.addClass('grid-init');	
 	        });
-
 	        return this;
 	    };
 
@@ -162,7 +157,6 @@
 	                img.hide();
 	            });
 	        });
-
 	        var slider = el.slick(options);
 	        el.on('beforeChange', function(event, slick, currentSlide, nextSlide){
 	            var video = $(this).find('.external-video');
@@ -175,18 +169,15 @@
 	    }; 
 
         _.init();
-
     }
 
     $.fn.gridSlider = function(options) {
-
         return this.each(function() {
             if (undefined == $(this).data('gridSlider')) {
                 var plugin = new $.gridSlider(this, options);
                 $(this).data('gridSlider', plugin);
             }
         });
-
     }
     $( document ).ready(function($) {
 		$(".grid-slider").not('.exception').each(function() {
@@ -204,8 +195,8 @@
 		});
     });
     $(document).on('shopify:section:unload shopify:section:load', function (event) {
-      $('#shopify-section-' + event.detail.sectionId).find(".grid-slider").not('.exception').each(function() {
-        $(this).gridSlider();
-      });
+      	$('#shopify-section-' + event.detail.sectionId).find(".grid-slider").not('.exception').each(function() {
+        	$(this).gridSlider();
+      	});
     });
 })(jQuery);
