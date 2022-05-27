@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-05-27 22:13:40
+* @Last Modified time: 2022-05-28 00:06:43
 */
 
 (function($) {
@@ -108,7 +108,8 @@
 						$.each( responsive[key], function( size, num) { maxWith = size; col = num;});
 						style += ' @media (min-width: '+maxWith+'px)';
 					}
-					let clearRtl = (rows != 1) ? classes+':nth-child('+col+'n+1){clear: ' + float + ';}' : ' ';  
+					let clearRtl = (rows != 1) ? classes + ':nth-child('+col+'n+1){clear: left}' : ' ';
+                  	clearRtl 	+= (rows != 1) ? '.rtl ' + classes+':nth-child('+col+'n+1){clear: right}' : ' ';
 					style += ' {'+selector + '{margin: 0 -'+padding+'px}'+classes+'{padding: 0 '+padding+'px; box-sizing: border-box; width: '+(Math.floor((10/col) * 100000000000) / 10000000000)+'%} '+clearRtl+'}';
 				});	
 	           	$head.append('<style type="text/css" id="' + styleId + '" >'+style+'</style>');
