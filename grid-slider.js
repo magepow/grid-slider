@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-05-27 11:03:59
+* @Last Modified time: 2022-05-27 11:12:48
 */
 
 (function($) {
@@ -39,10 +39,10 @@
 		};
 
 	    _._initSlider = function () {
-	    	var settings = _.settings;
-	        var useIntersectionObserver = settings.IntersectionObserver;
-	        var $head = $('head');
-	        var elements = $element.find(settings.selector);
+	    	var settings = _.settings,
+	        	useIntersectionObserver = settings.IntersectionObserver,
+	        	$head = $('head'),
+	        	elements = $element.find(settings.selector);
 	        if(!elements.length) elements = $element;
 	        elements.each(function() {
 	            var element = $(this),
@@ -55,17 +55,17 @@
 	                element.attr('dir', 'rtl');
 	                element.data( 'rtl', true );
 	            }
-	            var options = element.data();
 	            if(iClass === undefined){
 	                element.children().addClass('alo-item');
 	                var iClass = '.alo-item';
 	            }
-				var rows 	= ((options || {}).rows === void 0) ? 1 : options.rows;
-				var classes	= rows ? selector + ' '+ iClass : selector + ' .slick-track > '+ iClass;
-	            var padding = ((options || {}).padding === void 0) ? 0 : options.padding;
-	            var float  	= isRTL ? 'right' : 'left';
-	            var style 	= classes + '{float: ' + float + '; padding: 0 '+padding+'px; box-sizing: border-box} ' + selector + '{margin: 0 -'+padding+'px}';
-              		style  += "[dir='rtl'] " + classes + ', .rtl ' + classes + '{float: right}'
+	            var options = element.data(),
+					rows 	= ((options || {}).rows === void 0) ? 1 : options.rows,
+					classes	= rows ? selector + ' '+ iClass : selector + ' .slick-track > '+ iClass,
+	            	padding = ((options || {}).padding === void 0) ? 0 : options.padding,
+	            	float  	= isRTL ? 'right' : 'left',
+	            	style 	= classes + '{float: ' + float + '; padding: 0 '+padding+'px; box-sizing: border-box} ' + selector + '{margin: 0 -'+padding+'px}';
+              		style  += "[dir='rtl'] " + classes + ', .rtl ' + classes + '{float: right}';
 	            if(style) $head.append('<style type="text/css" >'+style+'</style>');
 	            style 		= '';
 	            if(options.slidesToShow){
@@ -85,7 +85,6 @@
 								}
 							});
 						});
-
 						element.each(function(index, el){
 					    	gridSliderObserver.observe(el);
 					    });
@@ -102,9 +101,7 @@
 				if(responsive == undefined) return;
 				var length = Object.keys(responsive).length;
 				$.each( responsive, function( key, value ) {
-					var col = 0;
-					var maxWith = 0;
-					var minWith = 0;
+					var col = 0, maxWith = 0, minWith = 0;
 					$.each( value , function(size, num) { minWith = parseInt(size) + 1; col = num;});
 					if(key+2<length){
 						$.each( responsive[key+1], function( size, num) { maxWith = size; col = num;});
@@ -119,9 +116,7 @@
 				});	
 
 	           	$head.append('<style type="text/css" id="' + styleId + '" >'+style+'</style>');
-
-	           	element.addClass('grid-init');
-	           	
+	           	element.addClass('grid-init');	
 	        });
 
 	        return this;
@@ -130,9 +125,9 @@
 	    _.getPesponsive = function (options) {
 	    	if(!options.responsive) return;
             if(!options.slidesToShow) return options.responsive.reverse();
-			var responsive 	= options.responsive;
-			var length = Object.keys(responsive).length;
-			var gridResponsive = [];
+			var responsive 	= options.responsive,
+				length = Object.keys(responsive).length,
+				gridResponsive = [];
 			$.each( responsive, function( key, value ) { 
 				var breakpoint = {};
 				breakpoint[value.breakpoint] = parseInt(value.settings.slidesToShow);
@@ -146,8 +141,8 @@
 	    		el.slick("refresh");
 	    		return;
 	    	}
-	    	var options = el.data();
-	        var lazy  = el.find('img.lazyload');
+	    	var options = el.data(),
+				lazy    = el.find('img.lazyload');
 	        if(lazy.length){
 	            lazy.each(function(index) {
 	                $(this).data('lazy', $(this).data('src'));
@@ -157,10 +152,8 @@
 	        	$('body').trigger('contentUpdated'); // support lazyload
 	            var video = $(this).find('.external-video');
 	            video.click(function(event) {
-	                var $this = $(this);
-	                var img = $this.find('img');
-	                event.preventDefault();
-	                var url = $(this).data('video');
+	            	event.preventDefault();
+	                var $this = $(this), img = $this.find('img'), url = $(this).data('video');
 	                url = url.replace("://vimeo.com/", "://player.vimeo.com/video/");
 	                url = url.replace("://www.youtube.com/watch?v=", "://youtube.com/embed/");
 	                url = url + '?autoplay=1&badge=0';
