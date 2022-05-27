@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-05-27 11:12:48
+* @Last Modified time: 2022-05-27 12:04:29
 */
 
 (function($) {
@@ -63,9 +63,9 @@
 					rows 	= ((options || {}).rows === void 0) ? 1 : options.rows,
 					classes	= rows ? selector + ' '+ iClass : selector + ' .slick-track > '+ iClass,
 	            	padding = ((options || {}).padding === void 0) ? 0 : options.padding,
-	            	float  	= isRTL ? 'right' : 'left',
-	            	style 	= classes + '{float: ' + float + '; padding: 0 '+padding+'px; box-sizing: border-box} ' + selector + '{margin: 0 -'+padding+'px}';
-              		style  += "[dir='rtl'] " + classes + ', .rtl ' + classes + '{float: right}';
+	            	style 	= classes + '{padding: 0 '+padding+'px; box-sizing: border-box} ' + selector + '{margin: 0 -'+padding+'px}';
+              		style  += classes + '{float: left}';
+              		style  += '.rtl ' + classes + '{float: right}';
 	            if(style) $head.append('<style type="text/css" >'+style+'</style>');
 	            style 		= '';
 	            if(options.slidesToShow){
