@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-05-07 15:38:50
+* @Last Modified time: 2022-05-27 11:03:59
 */
 
 (function($) {
@@ -45,12 +45,13 @@
 	        var elements = $element.find(settings.selector);
 	        if(!elements.length) elements = $element;
 	        elements.each(function() {
-	            var element = $(this);
-	            var selector = 'grid-slider-' + _.uniqid();
+	            var element = $(this),
+                    isRTL   = $('body').hasClass('rtl'),
+	            	selector = 'grid-slider-' + _.uniqid();
 	            var styleId  = selector;
 	            element.addClass(selector);
 	            selector = '.' + selector;
-	            if($('body').hasClass('rtl')){
+	            if(isRTL){
 	                element.attr('dir', 'rtl');
 	                element.data( 'rtl', true );
 	            }
@@ -62,8 +63,9 @@
 				var rows 	= ((options || {}).rows === void 0) ? 1 : options.rows;
 				var classes	= rows ? selector + ' '+ iClass : selector + ' .slick-track > '+ iClass;
 	            var padding = ((options || {}).padding === void 0) ? 0 : options.padding;
-	            var float  	= $('body').hasClass('rtl') ? 'right' : 'left';
+	            var float  	= isRTL ? 'right' : 'left';
 	            var style 	= classes + '{float: ' + float + '; padding: 0 '+padding+'px; box-sizing: border-box} ' + selector + '{margin: 0 -'+padding+'px}';
+              		style  += "[dir='rtl'] " + classes + ', .rtl ' + classes + '{float: right}'
 	            if(style) $head.append('<style type="text/css" >'+style+'</style>');
 	            style 		= '';
 	            if(options.slidesToShow){
@@ -156,7 +158,6 @@
 	            var video = $(this).find('.external-video');
 	            video.click(function(event) {
 	                var $this = $(this);
-	                if($this.hasClass('embed')) return;
 	                var img = $this.find('img');
 	                event.preventDefault();
 	                var url = $(this).data('video');
@@ -194,13 +195,25 @@
         });
 
     }
-
     $( document ).ready(function($) {
 		$(".grid-slider").not('.exception').each(function() {
 			$(this).gridSlider();
 		});
     });
-    $(document).on('shopify:section:unload, shopify:section:load', function (event) {
+    $(document).on('Alothemes:SwitchRTL:reload', function (event) {
+		$(".grid-slider").not('.exception').each(function() {
+            if($('body').hasClass('rtl')){
+              	$(this).attr('dir', 'rtl');
+              	$(this).data('rtl', true );
+            }else {
+              	$(this).attr('dir', 'ltr');
+              	$(this).data('rtl', false );            
+            }
+			$(this).slick("unslick");
+          	$(this).slick($(this).data());
+		});
+    });
+    $(document).on('shopify:section:unload shopify:section:load', function (event) {
       $('#shopify-section-' + event.detail.sectionId).find(".grid-slider").not('.exception').each(function() {
         $(this).gridSlider();
       });
