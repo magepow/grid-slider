@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-06-09 09:17:51
+* @Last Modified time: 2022-06-09 11:52:00
 */
 
 (function($) {
@@ -30,7 +30,7 @@
             for ( let i = 0; i < length; i++ ) {
             	result += characters.charAt(Math.floor(Math.random() * charactersLength));
            	}
-           	eturn result;
+           	return result;
 		};
 
 	    _._initSlider = function () {
