@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-06-11 19:59:25
+* @Last Modified time: 2022-06-11 20:00:27
 */
 
 (function($) {
@@ -21,7 +21,7 @@
         }
 		_.uniqid = function (length=10) {
             let result       	   = '';
-            const characters 	   = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            const characters 	   = 'abcdefghijklmnopqrstuvwxyz0123456789';
             const charactersLength = characters.length;
             for ( let i = 0; i < length; i++ ) {
             	result += characters.charAt(Math.floor(Math.random() * charactersLength));
