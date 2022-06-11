@@ -2,27 +2,23 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-06-09 11:52:00
+* @Last Modified time: 2022-06-11 19:59:25
 */
 
 (function($) {
-
+	"use strict";
     $.gridSlider = function(element, options) {
-
-        var defaults = {
-            selector: '.grid-slider',
-            IntersectionObserver: false
-        }
-
         var _ = this,
+        	defaults = {
+	            selector: '.grid-slider',
+	            IntersectionObserver: false
+	        },
             $element = $(element);
-        	_.settings = {};
-
+        _.settings = {};
         _.init = function() {
             _.settings = $.extend({}, defaults, options);
             _._initSlider();
         }
-
 		_.uniqid = function (length=10) {
             let result       	   = '';
             const characters 	   = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -32,7 +28,6 @@
            	}
            	return result;
 		};
-
 	    _._initSlider = function () {
 	    	var settings = _.settings,
 	        	useIntersectionObserver = settings.IntersectionObserver,
@@ -76,7 +71,7 @@
 										$head.find('#' + styleId).remove();
 									});
 									_.sliderRender($el);
-									// gridSliderObserver.unobserve(el);
+									/* gridSliderObserver.unobserve(el); */
 								}
 							});
 						});
@@ -115,7 +110,6 @@
 	        });
 	        return this;
 	    };
-
 	    _.getPesponsive = function (options) {
 	    	if(!options.responsive) return;
             if(!options.slidesToShow) return options.responsive.reverse();
@@ -129,7 +123,6 @@
 			 });
 			return gridResponsive.reverse();
 	    };
-
 	    _.sliderRender = function (el) {
 	    	if(el.hasClass('slick-initialized')){
 	    		el.slick("refresh");
@@ -166,10 +159,8 @@
 	            el.slick('slickSetOption', "autoplay",false,false);
 	        });
 	    }; 
-
         _.init();
     }
-
     $.fn.gridSlider = function(options) {
         return this.each(function() {
             if (undefined == $(this).data('gridSlider')) {
