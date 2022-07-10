@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-06-11 20:00:27
+* @Last Modified time: 2022-07-10 21:24:29
 */
 
 (function($) {
@@ -138,8 +138,9 @@
 	        el.on('init', function(event, slick){
 	        	$('body').trigger('contentUpdated'); // support lazyload
 	            var video = $(this).find('.external-video');
-	            video.click(function(event) {
-	            	event.preventDefault();
+	            video.on('click', function(e) {
+	            	e.preventDefault();
+	            	if($this.hasClass('embed')) return;
 	                var $this = $(this), img = $this.find('img'), url = $(this).data('video');
 	                url = url.replace("://vimeo.com/", "://player.vimeo.com/video/");
 	                url = url.replace("://www.youtube.com/watch?v=", "://youtube.com/embed/");
