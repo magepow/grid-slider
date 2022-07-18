@@ -2,7 +2,7 @@
 * @Author: Alex Dong
 * @Date:   2020-07-29 13:21:07
 * @Last Modified by:   Alex Dong
-* @Last Modified time: 2022-07-10 21:24:29
+* @Last Modified time: 2022-07-18 18:24:15
 */
 
 (function($) {
@@ -103,7 +103,7 @@
 					}
 					let clearRtl = (rows != 1) ? classes + ':nth-child('+col+'n+1){clear: left}' : ' ';
                   	clearRtl 	+= (rows != 1) ? '.rtl ' + classes+':nth-child('+col+'n+1){clear: right}' : ' ';
-					style += ' {'+selector + '{margin: 0 -'+padding+'px}'+classes+'{padding: 0 '+padding+'px; box-sizing: border-box; width: '+(Math.floor((10/col) * 100000000000) / 10000000000)+'%} '+clearRtl+'}';
+					style += ' {'+selector + '{margin: 0 -'+padding+'px}'+classes+'{padding: 0 '+padding+'px; box-sizing: border-box; width: width: calc(100% / ' + col + ')} '+clearRtl+'}';
 				});	
 	           	$head.append('<style type="text/css" id="' + styleId + '" >'+style+'</style>');
 	           	element.addClass('grid-init');	
