@@ -46,7 +46,12 @@
 	                element.data( 'rtl', true );
 	            }
 	            if(iClass === undefined){
-	                element.children().addClass('alo-item');
+	            	var azInit = element.find('> .slick-list > .slick-track');
+	            	if(azInit.length){
+	            		azInit.children().addClass('alo-item');
+	            	}else{
+	            		element.children().addClass('alo-item');
+	            	}
 	                var iClass = '.alo-item';
 	            }
 	            var options = element.data(),

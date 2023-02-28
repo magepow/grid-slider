@@ -6,7 +6,7 @@
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
- Version: 1.9.0
+ Version: 1.8.1
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
     Docs: http://kenwheeler.github.io/slick
@@ -520,12 +520,15 @@
         });
 
         _.$slider.addClass('slick-slider');
+        if(_.$slides.parent().is('.slick-track')){
+            _.$slideTrack = _.$slides.parent();
+        }else{
+            _.$slideTrack = (_.slideCount === 0) ?
+                $('<div class="slick-track"/>').appendTo(_.$slider) :
+                _.$slides.wrapAll('<div class="slick-track"/>').parent();            
+        }
 
-        _.$slideTrack = (_.slideCount === 0) ?
-            $('<div class="slick-track"/>').appendTo(_.$slider) :
-            _.$slides.wrapAll('<div class="slick-track"/>').parent();
-
-        _.$list = _.$slideTrack.wrap(
+        _.$list = _.$slideTrack.parent().is('.slick-list') ?  _.$slideTrack.parent() : _.$slideTrack.wrap(
             '<div class="slick-list"/>').parent();
         _.$slideTrack.css('opacity', 0);
 
@@ -1019,7 +1022,7 @@
             .off('focus.slick blur.slick')
             .on(
                 'focus.slick',
-                '*',
+                '*', 
                 function(event) {
                     var $sf = $(this);
 
@@ -1034,7 +1037,7 @@
                 }
             ).on(
                 'blur.slick',
-                '*',
+                '*', 
                 function(event) {
                     var $sf = $(this);
 
@@ -1293,6 +1296,10 @@
 
             $(_.$slider).addClass('slick-initialized');
 
+            var azInit = _.$slider.find('> .slick-list > .slick-track');
+            if(azInit.length){
+                _.$slider = azInit;
+            }
             _.buildRows();
             _.buildOut();
             _.setProps();
@@ -1325,7 +1332,7 @@
 
     Slick.prototype.initADA = function() {
         var _ = this,
-                numDotGroups = Math.ceil(_.slideCount / _.options.slidesToShow),
+                numDotGroups = Math.ceil(_.slideCount / _.options.slidesToScroll),
                 tabControlIndexes = _.getNavigableIndexes().filter(function(val) {
                     return (val >= 0) && (val < _.slideCount);
                 });
@@ -2354,7 +2361,7 @@
                 if (index === 0) {
 
                     allSlides
-                        .eq(allSlides.length - 1 - _.options.slidesToShow)
+                        .eq( _.options.slidesToShow + _.slideCount + 1 )
                         .addClass('slick-center');
 
                 } else if (index === _.slideCount - 1) {
