@@ -1,0 +1,23 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "axios": "^0.21",
+        "grunt": "^1.6.1",
+        "grunt-contrib-cssmin": "^4.0.0",
+        "grunt-contrib-imagemin": "^4.0.0",
+        "grunt-contrib-uglify": "^5.2.2",
+        "grunt-contrib-uglify-es": "github:gruntjs/grunt-contrib-uglify#harmony",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.19",
+        "postcss": "^8.1.14"
+    }
+}
