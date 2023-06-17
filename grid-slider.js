@@ -19,11 +19,12 @@
             _.settings = $.extend({}, defaults, options);
             _._initSlider();
         }
-		_.uniqid = function (length=10) {
-            let result       	   = '';
-            const characters 	   = 'abcdefghijklmnopqrstuvwxyz0123456789';
-            const charactersLength = characters.length;
-            for ( let i = 0; i < length; i++ ) {
+		_.uniqid = function (length) {
+			length = length || 10;
+            var result       	   = '',
+            	characters 	   = 'abcdefghijklmnopqrstuvwxyz0123456789',
+            	charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
             	result += characters.charAt(Math.floor(Math.random() * charactersLength));
            	}
            	return result;
@@ -67,10 +68,10 @@
 					if ("IntersectionObserver" in window && useIntersectionObserver) {
 						var nthChild = options.slidesToShow + 1;
 						style += selector + ' .item:nth-child(n+ ' + nthChild + ')' + '{display: none;} ' + selector +  ' .item{float:left};';
-						let gridSliderObserver = new IntersectionObserver(function(entries, observer) {
+						var gridSliderObserver = new IntersectionObserver(function(entries, observer) {
 							entries.forEach(function(entry) {
 								if (entry.isIntersecting) {
-									let el  = entry.target;
+									var el  = entry.target;
 									var $el = $(el);
 									$el.on('init', function(){
 										$head.find('#' + styleId).remove();
@@ -106,7 +107,7 @@
 						$.each( responsive[key], function( size, num) { maxWith = size; col = num;});
 						style += ' @media (min-width: '+maxWith+'px)';
 					}
-					let clearRtl = (rows != 1) ? classes + ':nth-child('+col+'n+1){clear: left}' : ' ';
+					var clearRtl = (rows != 1) ? classes + ':nth-child('+col+'n+1){clear: left}' : ' ';
                   	clearRtl 	+= (rows != 1) ? '.rtl ' + classes+':nth-child('+col+'n+1){clear: right}' : ' ';
 					style += ' {'+selector + '{margin: 0 -'+padding+'px}'+classes+'{padding: 0 '+padding+'px; box-sizing: border-box; width: calc(100% / ' + col + ')} '+clearRtl+'}';
 				});	
