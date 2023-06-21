@@ -82,7 +82,12 @@
 							});
 						});
 						element.each(function(index, el){
-					    	gridSliderObserver.observe(el);
+                            var $el = $(el);
+                            if($el.is(':visible')){
+                                gridSliderObserver.observe(el);
+                            }else {
+                              _.sliderRender($el);
+                            }
 					    });
 					} else {
 						_.sliderRender(element);
