@@ -1,0 +1,142 @@
+{% capture configScreen %}
+    1921=>visible, 
+    1920=>widescreen, 
+    1480=>desktop, 
+    1200=>laptop, 
+    992=>notebook, 
+    768=>tablet, 
+    576=>landscape, 
+    481=>portrait, 
+    361=>mobile,
+    1=>space-Between
+{% endcapture %}
+{% assign configScreen = configScreen | strip_newlines | replace: ' ', '' | split: ',' %}
+{% assign skeletion = '' %}
+{% for cfg in configScreen %}
+  {% assign size = cfg | split: '=>' | first | strip %}
+  {% assign name = cfg | split: '=>' | last | strip %}
+  {% if settings[name] != blank %}
+    {% capture skeletion %}{{skeletion}} data-{{ name }}="{{ settings[name] }}"{% endcapture %}
+  {% endif %}
+{% endfor %}
+{{ skeletion }}
+
+{% comment %}
+  Use in section:
+      {%- render 'skeleton', settings: section.settings -%}
+
+  Use in block in section:
+      {% render 'skeleton', settings:block.settings %}
+{% endcomment %}
+
+{% comment %}
+  Add to settings_schema:
+
+    {
+        "type": "header",
+        "content": "---- Skeleton ----",
+        "info": "Refer Skeleton screens using css [here](https://www.freecodecamp.org/news/how-to-build-skeleton-screens-using-css-for-better-user-experience/)"
+    },
+    {
+         "type": "range",
+         "id": "visible",
+         "label": "Columns in Visible",
+      "info": "Item(s) in screen ( Size >= 1920 )",
+         "min": 1,
+         "max": 8,
+         "step": 1,
+         "default": 5
+     },
+     {
+         "type": "range",
+         "id": "widescreen",
+         "label": "Columns in Widescreen",
+      "info": "Item(s) in screen ( 1366 <= Size < 1920 )",
+         "min": 1,
+         "max": 8,
+         "step": 1,
+         "default": 4
+     },
+     {
+         "type": "range",
+         "id": "desktop",
+         "label": "Columns in Desktop",
+      "info":  "Item(s) in screen ( 1200 <= Size < 1480 )",
+         "min": 1,
+         "max": 8,
+         "step": 1,
+         "default": 4
+     },
+     {
+         "type": "range",
+         "id": "laptop",
+         "label": "Columns in Laptop",
+      "info": "Item(s) in screen ( 992 <= Size < 1200 )",
+         "min": 1,
+         "max": 8,
+         "step": 1,
+         "default": 4
+     },
+     {
+         "type": "range",
+         "id": "notebook",
+         "label": "Columns in Notebook",
+      "info": "Item(s) in screen ( 768 <= Size < 992 )",
+         "min": 1,
+         "max": 8,
+         "step": 1,
+         "default": 3
+     },
+     {
+         "type": "range",
+         "id": "tablet",
+         "label": "Columns in Tablet",
+      "info": "Item(s) in screen ( 576 <= Size < 768 )",
+         "min": 1,
+         "max": 8,
+         "step": 1,
+         "unit": "pds",
+         "default": 3
+     },
+     {
+         "type": "range",
+         "id": "landscape",
+         "label": "Columns in Landscape",
+      "info": "Item(s) in screen ( 480 <= Size < 576 )",
+         "min": 1,
+         "max": 6,
+         "step": 1,
+         "default": 2
+     },
+     {
+         "type": "range",
+         "id": "portrait",
+         "label": "Columns in Portrait",
+      "info": "Item(s) in screen ( 360 < Size < 480 )",
+         "min": 1,
+         "max": 6,
+         "step": 1,
+         "default": 2
+     },
+     {
+         "type": "range",
+         "id": "mobile",
+         "label": "Columns in Mobile",
+      "info": "Item(s) in screen ( Size < = 360 )",
+         "min": 1,
+         "max": 4,
+         "step": 1,
+         "default": 1
+     },
+     {
+         "type": "range",
+         "id": "space-Between",
+         "label": "Space Between",
+         "info": "Distance between slides in px.",
+         "min": 0,
+         "max": 15,
+         "step": 0.5,
+         "unit": "px",
+         "default": 10
+     },
+{% endcomment %}
