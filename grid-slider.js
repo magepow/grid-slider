@@ -245,7 +245,6 @@
 			}
 
 		    initialized() {
-		    	console.log('sss');
 		    	$(this).not('.exception, .grid-init, .slick-initialized').each(function() {
 					$(this).gridSlider();
 				});
