@@ -203,17 +203,17 @@
         });
     }
     $( document ).ready(function($) {
-		$(".grid-slider").not('.exception').each(function() {
+		$(".grid-slider").not('grid-slider, .exception').each(function() {
 			$(this).gridSlider();
 		});
     });
     $(document).on('contentUpdated', function (event) {
-		$(".grid-slider").not('.exception, .grid-init, .slick-initialized').each(function() {
+		$(".grid-slider").not('grid-slider, .exception, .grid-init, .slick-initialized').each(function() {
 			$(this).gridSlider();
 		});
     });
     $(document).on('Alothemes:SwitchRTL:reload', function (event) {
-		$(".grid-slider").not('.exception').each(function() {
+		$(".grid-slider").not('grid-slider, .exception').each(function() {
             if($('body').hasClass('rtl')){
               	$(this).attr('dir', 'rtl').data('rtl', true);
             }else {
@@ -225,7 +225,7 @@
 		});
     });
     $(document).on('shopify:section:unload shopify:section:load', function (event) {
-      	$('#shopify-section-' + event.detail.sectionId).find(".grid-slider").not('.exception').each(function() {
+      	$('#shopify-section-' + event.detail.sectionId).find(".grid-slider").not('grid-slider, .exception').each(function() {
         	$(this).gridSlider();
       	});
     });
@@ -241,14 +241,53 @@
 			}
 
 			connectedCallback() {
+				console.log('connectedCallback');
 				if(!this.classList.contains('ajax')) this.initialized();
 			}
 
+			attributeChangedCallback(name, oldValue, newValue) {
+				console.log(`Attribute ${name} has changed.`);
+			}
+
 		    initialized() {
-		    	$(this).not('.exception, .grid-init, .slick-initialized').each(function() {
-					$(this).gridSlider();
-				});
+		    	console.log(this);
+		    	console.log(this.isInViewport());
+				if (this.isInViewport()) {
+					console.log('isInViewport');
+
+					// $(this).not('.exception, .grid-init, .slick-initialized').gridSlider();
+				}else{
+					console.log('hide');
+					this.intersection();
+				}
+				this.intersection();
 		    }
+
+		    intersection() {
+				const options = {
+				  rootMargin: '0px',
+				  threshold: 1.0
+				};
+				const observer = new IntersectionObserver((entries, observer) => {
+					entries.forEach(entry => {
+						console.log('ssss');
+					});
+				}, options);
+				observer.observe(this);
+		    }
+
+			isInViewport() {
+				console.log(this);
+		        const rect = this.getBoundingClientRect();
+		        console.log(rect);
+		        return (
+		            rect.top >= 0 &&
+		            rect.left >= 0 &&
+		            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+		            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+		        );
+		    }
+
 		}
 		customElements.define("grid-slider", GridSlider);
   	}
