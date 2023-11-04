@@ -241,51 +241,17 @@
 			}
 
 			connectedCallback() {
-				console.log('connectedCallback');
-				if(!this.classList.contains('ajax')) this.initialized();
-			}
-
-			attributeChangedCallback(name, oldValue, newValue) {
-				console.log(`Attribute ${name} has changed.`);
+                if(this.slick){
+                  $(this).slick("refresh")
+                }else{
+                  if(!this.classList.contains('ajax')) this.initialized();
+                }
 			}
 
 		    initialized() {
-		    	console.log(this);
-		    	console.log(this.isInViewport());
-				if (this.isInViewport()) {
-					console.log('isInViewport');
-
-					// $(this).not('.exception, .grid-init, .slick-initialized').gridSlider();
-				}else{
-					console.log('hide');
-					this.intersection();
-				}
-				this.intersection();
-		    }
-
-		    intersection() {
-				const options = {
-				  rootMargin: '0px',
-				  threshold: 1.0
-				};
-				const observer = new IntersectionObserver((entries, observer) => {
-					entries.forEach(entry => {
-						console.log('ssss');
-					});
-				}, options);
-				observer.observe(this);
-		    }
-
-			isInViewport() {
-				console.log(this);
-		        const rect = this.getBoundingClientRect();
-		        console.log(rect);
-		        return (
-		            rect.top >= 0 &&
-		            rect.left >= 0 &&
-		            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-		            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-		        );
+		    	$(this).not('.exception, .grid-init, .slick-initialized').each(function() {
+					$(this).gridSlider();
+				});
 		    }
 
 		}
