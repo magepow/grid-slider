@@ -208,4 +208,28 @@
         	$(this).gridSlider();
       	});
     });
+
+	if (!customElements.get('grid-slider')) {
+		class GridSlider extends HTMLElement {
+			constructor() {
+				super();
+				var $this = this;
+				document.addEventListener("GridSliderUpdated", function (event) {
+					$this.initialized();
+				});
+			}
+
+			connectedCallback() {
+				if(!this.classList.contains('ajax')) this.initialized();
+			}
+
+		    initialized() {
+		    	console.log('sss');
+		    	$(this).not('.exception, .grid-init, .slick-initialized').each(function() {
+					$(this).gridSlider();
+				});
+		    }
+		}
+		customElements.define("grid-slider", GridSlider);
+  	}
 })(jQuery);

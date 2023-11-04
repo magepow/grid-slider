@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="css/slick-theme.css">
 <script src="js/jquery.js"></script> 
 <script type="text/javascript" src="js/slick.js"></script> 
-<script type="text/javascript" src="grid-slider.js"></script> 
+<script type="text/javascript" src="grid-slider.js" defer></script> 
 <style>
 	img{width:100%}
 	ul {list-style-type: none;}
@@ -28,8 +28,8 @@
 	data-infinite="true"
 	data-speed="300"
 	data-padding="15"
-	data-slides-To-Show="6",
-	data-slides-To-Scroll="1",
+	data-slides-To-Show="6"
+	data-slides-To-Scroll="1"
 	data-responsive= '[{"breakpoint": "1024", "settings": {"slidesToShow": "6"}}, {"breakpoint": "800", "settings": {"slidesToShow": "3"}}, {"breakpoint": "500", "settings": {"slidesToShow": "5"}}, {"breakpoint": "460", "settings": {"slidesToShow": "1"}}]'
 	>
         <div class="slick-list">
@@ -54,8 +54,8 @@
 	<ul class="grid-slider autoplay slider custom-grid-slider" 
 	data-infinite="true"
 	data-speed="300"
-	data-slides-To-Show="8",
-	data-slides-To-Scroll="1",
+	data-slides-To-Show="8"
+	data-slides-To-Scroll="1"
 	data-responsive= '[{"breakpoint": "1024", "settings": {"slidesToShow": "6"}}, {"breakpoint": "800", "settings": {"slidesToShow": "3"}}, {"breakpoint": "600", "settings": {"slidesToShow": "2"}}, {"breakpoint": "460", "settings": {"slidesToShow": "1"}}]'
 	>
 		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image1.jpg"/></li>
@@ -72,7 +72,7 @@
 	</ul>
 </div>
 
-<div class="demo3">
+<!-- <div class="demo3">
 	<ul class="grid-slider autoplay slider custom-grid"
 		data-padding="10"
 		data-responsive='[{"1":"1"},{"360":"1"},{"479":"1"},{"575":"2"},{"767":"2"},{"991":"2"},{"1199":"3"},{"1479":"4"},{"1919":"4"},{"1920":"5"}]'
@@ -89,8 +89,29 @@
 		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image10.jpg"/></li>
 		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image11.jpg"/></li>
 	</ul>
-</div>
+</div> -->
 
+<div class="demo5">
+	<grid-slider class="grid-slider autoplay slider custom-grid"
+		data-infinite="true"
+		data-speed="300"
+		data-slides-To-Show="8"
+		data-slides-To-Scroll="1"
+		data-responsive= '[{"breakpoint": "1024", "settings": {"slidesToShow": "6"}}, {"breakpoint": "800", "settings": {"slidesToShow": "3"}}, {"breakpoint": "600", "settings": {"slidesToShow": "2"}}, {"breakpoint": "460", "settings": {"slidesToShow": "1"}}]'
+	>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image1.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image2.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image3.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image4.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image5.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image6.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image7.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image8.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image9.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image10.jpg"/></li>
+		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image11.jpg"/></li>
+	</grid-slider>
+</div>
 <script>
 $(document).ready(function() {
 	// var slide = $('.demo').gridSlider().addClass('done');
