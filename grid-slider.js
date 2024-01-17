@@ -249,9 +249,20 @@
 			}
 
 		    initialized() {
-		    	$(this).not('.exception, .grid-init, .slick-initialized').each(function() {
-					$(this).gridSlider();
-				});
+		    	$(this).not(".exception, .grid-init, .slick-initialized").each(function () {
+					if (!localStorage.getItem("touch") && window.matchMedia("(max-width: 768px)").matches && window.matchMedia("(pointer: coarse)").matches ) {
+						document.addEventListener("DOMContentLoaded", function () {
+							document.body.addEventListener("touchstart", (event) => {
+								if (document.body.classList.contains("touch")) return;
+								localStorage.setItem("touch", true);
+								document.body.classList.add("touch");
+								$(this).gridSlider();
+							});
+						});
+					} else {
+							$(this).gridSlider();
+					}
+            	});
 		    }
 
 		}
