@@ -11,7 +11,7 @@
 		var _ = this,
 			defaults = {
 				selector: '.grid-slider',
-				IntersectionObserver: true
+				IntersectionObserver: false
 			},
 			$element = $(element);
 		_.settings = {};
