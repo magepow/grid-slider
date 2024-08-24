@@ -11,7 +11,7 @@
         var _ = this,
         	defaults = {
 	            selector: '.grid-slider',
-	            IntersectionObserver: false
+	            IntersectionObserver: true
 	        },
             $element = $(element);
         _.settings = {};
@@ -80,7 +80,7 @@
 									/* gridSliderObserver.unobserve(el); */
 								}
 							});
-						});
+						}, { root: null, rootMargin: '10px', threshold: 0.5 });
 						element.each(function(index, el){
                             var $el = $(el);
                             if($el.is(':visible')){
