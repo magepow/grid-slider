@@ -205,13 +205,11 @@
 	if (!localStorage.getItem("touch") && window.matchMedia('(max-width: 768px)').matches && window.matchMedia("(pointer: coarse)").matches) {
 		document.addEventListener("DOMContentLoaded", function () {
 			document.body.addEventListener("touchstart", (event) => {
-				if (document.body.classList.contains('touch')) return;
 				localStorage.setItem("touch", true);
-				document.body.classList.add('touch');
 				$(".grid-slider").not('grid-slider, .exception').each(function () {
 					$(this).gridSlider();
 				});
-			});
+			}, {once : true});
 		});
 	} else {
 		window.addEventListener("load", function () {
